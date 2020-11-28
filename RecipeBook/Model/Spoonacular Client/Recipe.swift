@@ -12,4 +12,6 @@ struct Recipe: Codable {
     let title: String
     let image: String
     let imageType: String
+    let readyInMinutes: Int
+    let servings: Int
 }

@@ -19,12 +19,11 @@ class SpoonacularClient {
         var urlString: String {
             switch self {
             case .complexSearch(let query):
-                return Endpoints.baseUrl + "/complexSearch?apiKey=\(apiKey)&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&number=10"
+                return Endpoints.baseUrl + "/complexSearch?apiKey=\(apiKey)&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&addRecipeInformation=true&number=10"
             }
         }
         
         var url: URL {
-            print(urlString)
             return URL(string: urlString)!
         }
     }

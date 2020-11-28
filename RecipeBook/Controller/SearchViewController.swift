@@ -41,14 +41,17 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell") as! RecipeCell
         let recipe = recipes[indexPath.row]
-        cell.textLabel?.text = recipe.title
+        cell.recipeTitle.text = recipe.title
+        cell.recipeTitle.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
+        cell.recipeTime.text = String(recipe.readyInMinutes)
+        cell.servings.text = String(recipe.servings)
         SpoonacularClient.getImage(url: recipe.image) { (data, error) in
             guard let data = data else {
                 return
             }
-            cell.imageView?.image = UIImage(data: data)!
+            cell.foodImage.image = UIImage(data: data)!
             cell.setNeedsLayout()
         }
         return cell
