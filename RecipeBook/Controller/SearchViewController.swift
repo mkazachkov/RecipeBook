@@ -12,26 +12,45 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searhBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    var recipes: [Recipe] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(searchBar.text ?? "")
+        guard let text = searchBar.text, text.count > 0 else {
+            return
+        }
+        SpoonacularClient.complexSearh(query: text) { (recipes, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            self.recipes = recipes
+            self.tableView.reloadData()
+        }
     }
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        recipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell")!
+        let recipe = recipes[indexPath.row]
+        cell.textLabel?.text = recipe.title
+        SpoonacularClient.getImage(url: recipe.image) { (data, error) in
+            guard let data = data else {
+                return
+            }
+            cell.imageView?.image = UIImage(data: data)!
+            cell.setNeedsLayout()
+        }
         return cell
     }
     

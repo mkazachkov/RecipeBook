@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		741EC1BD2572CE41008398DC /* SpoonacularClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EC1BC2572CE41008398DC /* SpoonacularClient.swift */; };
+		741EC1C02572D02B008398DC /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EC1BF2572D02B008398DC /* Recipe.swift */; };
+		741EC1C32572D0D2008398DC /* RecipeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EC1C22572D0D2008398DC /* RecipeResults.swift */; };
 		74D3F9772570253A00542435 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3F9762570253A00542435 /* AppDelegate.swift */; };
 		74D3F9792570253A00542435 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3F9782570253A00542435 /* SceneDelegate.swift */; };
 		74D3F97B2570253A00542435 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3F97A2570253A00542435 /* SearchViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		741EC1BC2572CE41008398DC /* SpoonacularClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularClient.swift; sourceTree = "<group>"; };
+		741EC1BF2572D02B008398DC /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		741EC1C22572D0D2008398DC /* RecipeResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResults.swift; sourceTree = "<group>"; };
 		74D3F9732570253A00542435 /* RecipeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D3F9762570253A00542435 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74D3F9782570253A00542435 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +109,9 @@
 		74D3F99125704D6600542435 /* Spoonacular Client */ = {
 			isa = PBXGroup;
 			children = (
+				741EC1BC2572CE41008398DC /* SpoonacularClient.swift */,
+				741EC1BF2572D02B008398DC /* Recipe.swift */,
+				741EC1C22572D0D2008398DC /* RecipeResults.swift */,
 			);
 			path = "Spoonacular Client";
 			sourceTree = "<group>";
@@ -177,9 +186,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				741EC1BD2572CE41008398DC /* SpoonacularClient.swift in Sources */,
 				74D3F97B2570253A00542435 /* SearchViewController.swift in Sources */,
+				741EC1C32572D0D2008398DC /* RecipeResults.swift in Sources */,
 				74D3F9772570253A00542435 /* AppDelegate.swift in Sources */,
 				74D3F9792570253A00542435 /* SceneDelegate.swift in Sources */,
+				741EC1C02572D02B008398DC /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
