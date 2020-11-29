@@ -33,6 +33,11 @@ extension SearchViewController: UISearchBarDelegate {
             self.tableView.reloadData()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let recipeController = segue.destination as! RecipeViewController
+        recipeController.recipe = recipes[tableView.indexPathForSelectedRow!.row]
+    }
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
@@ -57,5 +62,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showRecipe", sender: nil)
+    }
 }

@@ -14,4 +14,5 @@ struct Recipe: Codable {
     let imageType: String
     let readyInMinutes: Int
     let servings: Int
+    let analyzedInstructions: [AnalyzedInstruction]
 }
