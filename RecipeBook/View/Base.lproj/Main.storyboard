@@ -149,7 +149,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="ei4-Py-N8d"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -158,14 +158,14 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="r4U-cv-RSm"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Recipe Title" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8S-u3-wDF">
                                                     <rect key="frame" x="160" y="5" width="249" height="90"/>
                                                     <color key="textColor" systemColor="labelColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -238,46 +238,50 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fe4-2c-jkW">
                                 <rect key="frame" x="10" y="236" width="394" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uS3-lf-d8j">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uS3-lf-d8j">
                                 <rect key="frame" x="0.0" y="273" width="414" height="493"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StepCell" id="XAT-Cq-yDQ" customClass="StepCell" customModule="RecipeBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="75.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XAT-Cq-yDQ" id="syP-r1-Ray">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyD-We-pBq">
-                                                    <rect key="frame" x="5" y="5" width="404" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="10" y="5" width="404" height="23"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="18X-Oy-flR">
-                                                    <rect key="frame" x="5" y="31" width="404" height="64"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Recipe text" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h71-QP-XIp">
+                                                    <rect key="frame" x="5" y="33" width="404" height="37.5"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="18X-Oy-flR" firstAttribute="top" secondItem="lyD-We-pBq" secondAttribute="bottom" constant="5" id="0B7-gC-8Y2"/>
                                                 <constraint firstItem="lyD-We-pBq" firstAttribute="top" secondItem="syP-r1-Ray" secondAttribute="top" constant="5" id="3cy-vm-Qlw"/>
-                                                <constraint firstItem="lyD-We-pBq" firstAttribute="leading" secondItem="syP-r1-Ray" secondAttribute="leading" constant="5" id="LNJ-ay-vw9"/>
-                                                <constraint firstAttribute="bottom" secondItem="18X-Oy-flR" secondAttribute="bottom" constant="5" id="SXt-gM-h9y"/>
-                                                <constraint firstItem="18X-Oy-flR" firstAttribute="leading" secondItem="syP-r1-Ray" secondAttribute="leading" constant="5" id="afU-EJ-ISU"/>
-                                                <constraint firstAttribute="trailing" secondItem="lyD-We-pBq" secondAttribute="trailing" constant="5" id="iB8-hk-duE"/>
-                                                <constraint firstAttribute="trailing" secondItem="18X-Oy-flR" secondAttribute="trailing" constant="5" id="uZ0-KJ-7hk"/>
+                                                <constraint firstItem="h71-QP-XIp" firstAttribute="top" secondItem="lyD-We-pBq" secondAttribute="bottom" constant="5" id="D6e-Gh-nfc"/>
+                                                <constraint firstAttribute="bottom" secondItem="h71-QP-XIp" secondAttribute="bottom" constant="5" id="Kz6-Wp-9Jj"/>
+                                                <constraint firstItem="lyD-We-pBq" firstAttribute="leading" secondItem="syP-r1-Ray" secondAttribute="leading" constant="10" id="LNJ-ay-vw9"/>
+                                                <constraint firstItem="h71-QP-XIp" firstAttribute="top" secondItem="lyD-We-pBq" secondAttribute="bottom" constant="5" id="dIc-We-1tV"/>
+                                                <constraint firstAttribute="trailing" secondItem="h71-QP-XIp" secondAttribute="trailing" constant="5" id="fiG-XS-hfW"/>
+                                                <constraint firstAttribute="trailing" secondItem="lyD-We-pBq" secondAttribute="trailing" id="iB8-hk-duE"/>
+                                                <constraint firstAttribute="bottom" secondItem="h71-QP-XIp" secondAttribute="bottom" constant="5" id="prP-ca-sBd"/>
+                                                <constraint firstItem="h71-QP-XIp" firstAttribute="leading" secondItem="syP-r1-Ray" secondAttribute="leading" constant="5" id="yOb-2U-UDb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="stepLabel" destination="lyD-We-pBq" id="OfE-cJ-mZ1"/>
-                                            <outlet property="stepTextView" destination="18X-Oy-flR" id="uRd-yC-kkP"/>
+                                            <outlet property="stepTextView" destination="h71-QP-XIp" id="dHO-ZY-1SY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -287,7 +291,7 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy your meal!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUT-SQ-N3c">
                                 <rect key="frame" x="10" y="776" width="394" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

@@ -9,6 +9,6 @@ import UIKit
 
 class StepCell: UITableViewCell {
     @IBOutlet weak var stepLabel: UILabel!
-    @IBOutlet weak var stepTextView: UITextField!
+    @IBOutlet weak var stepTextView: UITextView!
     
 }
