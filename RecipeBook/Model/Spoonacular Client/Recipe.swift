@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
-struct Recipe: Codable {
+class Recipe: Codable {
+    struct AnalyzedInstruction: Codable {
+        let steps: [Step]
+    }
+    
     let id: Int
     let title: String
     let image: String
@@ -15,4 +20,13 @@ struct Recipe: Codable {
     let readyInMinutes: Int
     let servings: Int
     let analyzedInstructions: [AnalyzedInstruction]
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, title, image, imageType, readyInMinutes, servings, analyzedInstructions
+    }
+    
+    // ------------------------------------------------------------------------
+    // MARK: - local properties
+    var isFavorite: Bool?
+    var imageData: Data?
 }

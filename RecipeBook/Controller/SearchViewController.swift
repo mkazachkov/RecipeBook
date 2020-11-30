@@ -36,7 +36,8 @@ extension SearchViewController: UISearchBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let recipeController = segue.destination as! RecipeViewController
-        recipeController.recipe = recipes[tableView.indexPathForSelectedRow!.row]
+        let recipe = recipes[tableView.indexPathForSelectedRow!.row]
+        recipeController.recipe = recipe
     }
 }
 
@@ -56,6 +57,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             guard let data = data else {
                 return
             }
+            recipe.imageData = data
             cell.foodImage.image = UIImage(data: data)!
             cell.setNeedsLayout()
         }

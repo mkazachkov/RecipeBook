@@ -7,7 +7,13 @@
 
 import Foundation
 
-class Step: Codable {
+struct Step: Codable {
+    struct Length: Codable {
+        let number: Int
+        let unit: String
+    }
+    
     let number: Int
     let step: String
+    let length: Length?
 }
