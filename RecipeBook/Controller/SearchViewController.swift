@@ -11,27 +11,14 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searhBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var noRecipesLabel: UILabel!
     
     var recipes: [Recipe] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text, text.count > 0 else {
-            return
-        }
-        SpoonacularClient.complexSearh(query: text) { (recipes, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            self.recipes = recipes
-            self.tableView.reloadData()
-        }
+        noRecipesLabel.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,9 +28,53 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, text.count > 0 else {
+            return
+        }
+        self.noRecipesLabel.isHidden = true
+        self.recipes = []
+        tableView.reloadData()
+        activityIndicator.startAnimating()
+        SpoonacularClient.complexSearch(query: text) { (recipes, error) in
+            self.activityIndicator.stopAnimating()
+            if let error = error {
+                self.presentErrorAlert(message: error.localizedDescription)
+                return
+            }
+            self.recipes = recipes
+            self.tableView.reloadData()
+            self.noRecipesLabel.isHidden = self.recipes.count > 0
+        }
+    }
+    
+    func presentErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Search Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+}
+
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        recipes.count
+        let count = recipes.count
+        return count
+    }
+    
+    fileprivate func setImageForCell(_ recipe: Recipe, _ cell: RecipeCell) {
+        if let imageData = recipe.imageData {
+            cell.foodImage.image = UIImage(data: imageData)!
+        } else {
+            SpoonacularClient.getImage(url: recipe.image!) { (data, error) in
+                guard let data = data else {
+                    return
+                }
+                recipe.imageData = data
+                cell.foodImage.image = UIImage(data: data)!
+                cell.setNeedsLayout()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,14 +84,9 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         cell.recipeTitle.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
         cell.recipeTime.text = String(recipe.readyInMinutes)
         cell.servings.text = String(recipe.servings)
-        SpoonacularClient.getImage(url: recipe.image) { (data, error) in
-            guard let data = data else {
-                return
-            }
-            recipe.imageData = data
-            cell.foodImage.image = UIImage(data: data)!
-            cell.setNeedsLayout()
-        }
+        cell.foodImage.image = UIImage(named: "food-placeholder")
+        setImageForCell(recipe, cell)
+        
         return cell
     }
     

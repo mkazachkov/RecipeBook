@@ -12,14 +12,13 @@ class SpoonacularClient {
     
     enum Endpoints {
         static let baseUrl = "https://api.spoonacular.com/recipes"
-//        static let baseUrl = "https://2e14b15a-f3a3-408f-8cd9-95efdfebf141.mock.pstmn.io/recipes"
         
         case complexSearch(String)
         
         var urlString: String {
             switch self {
             case .complexSearch(let query):
-                return Endpoints.baseUrl + "/complexSearch?apiKey=\(apiKey)&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&instructionsRequired=true&addRecipeInformation=true&number=10"
+                return Endpoints.baseUrl + "/complexSearch?apiKey=\(apiKey)&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&instructionsRequired=true&addRecipeInformation=true&number=100"
             }
         }
         
@@ -69,7 +68,7 @@ class SpoonacularClient {
         task.resume()
     }
     
-    class func complexSearh(query: String, completion: @escaping ([Recipe], Error?) -> Void) {
+    class func complexSearch(query: String, completion: @escaping ([Recipe], Error?) -> Void) {
         taskForGETRequest(url: Endpoints.complexSearch(query).url, responseType: RecipeResults.self) { (resipeResults, error) in
             guard let resipeResults = resipeResults else {
                 completion([], error)

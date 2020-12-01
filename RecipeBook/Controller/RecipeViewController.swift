@@ -20,17 +20,34 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequest.predicate = NSPredicate(format: "title == %@", recipe.title)
-        
-        if recipe.isFavorite == nil {
-            if let result = try? DataController.shared.viewContext.fetch(fetchRequest) {
-                print("found \(result.count) recipes with such title")
-                recipe.isFavorite = result.first != nil
-            }
-        }
-        
         recipeTitle.text = recipe.title
-        recipeImage.image = UIImage(data: recipe.imageData!)
+        if let imageData = recipe.imageData {
+            recipeImage.image = UIImage(data: imageData)
+        } else {
+            setImage()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let result = try? DataController.shared.viewContext.fetch(fetchRequest) {
+            recipe.isFavorite = result.first != nil
+        }
         updateFavoriteState()
+    }
+    
+    fileprivate func setImage() {
+        self.recipeImage.contentMode = .scaleAspectFit
+        self.recipeImage.image = UIImage(named: "food-placeholder")
+        SpoonacularClient.getImage(url: recipe.image!) { (data, error) in
+            guard let data = data else {
+                return
+            }
+            self.recipe.imageData = data
+            self.recipeImage.contentMode = .scaleAspectFill
+            self.recipeImage.image = UIImage(data: data)
+        }
     }
     
     func updateFavoriteState() {
@@ -50,9 +67,10 @@ class RecipeViewController: UIViewController {
         
         recipe.analyzedInstructions.first?.steps.forEach({ (step) in
             let stepData = StepData(context: DataController.shared.viewContext)
+            stepData.number = NSNumber(value: step.number)
             stepData.title = step.step
             if let time = step.length?.number {
-                stepData.time = Int32(time)
+                stepData.time = NSNumber(value: time)
             }
             stepData.timeUnit = step.length?.unit
             recipeData.addToSteps(stepData)

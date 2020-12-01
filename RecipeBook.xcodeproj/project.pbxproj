@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7405FAD62574B7E8000A8782 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405FAD52574B7E8000A8782 /* FavoritesViewController.swift */; };
 		741EC1BD2572CE41008398DC /* SpoonacularClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EC1BC2572CE41008398DC /* SpoonacularClient.swift */; };
 		741EC1C02572D02B008398DC /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EC1BF2572D02B008398DC /* Recipe.swift */; };
 		741EC1C32572D0D2008398DC /* RecipeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EC1C22572D0D2008398DC /* RecipeResults.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7405FAD52574B7E8000A8782 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		741EC1BC2572CE41008398DC /* SpoonacularClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularClient.swift; sourceTree = "<group>"; };
 		741EC1BF2572D02B008398DC /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		741EC1C22572D0D2008398DC /* RecipeResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResults.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				74E7D5D9257395A500D53928 /* StepCell.swift */,
 				74D3F97A2570253A00542435 /* SearchViewController.swift */,
 				74E7D5D62573906100D53928 /* RecipeViewController.swift */,
+				7405FAD52574B7E8000A8782 /* FavoritesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7405FAD62574B7E8000A8782 /* FavoritesViewController.swift in Sources */,
 				74E7D5E125739C1C00D53928 /* Step.swift in Sources */,
 				74CE106225741E2C00A97889 /* DataController.swift in Sources */,
 				741EC1BD2572CE41008398DC /* SpoonacularClient.swift in Sources */,

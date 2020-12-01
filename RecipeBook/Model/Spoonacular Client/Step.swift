@@ -13,6 +13,16 @@ struct Step: Codable {
         let unit: String
     }
     
+    init(from stepData: StepData) {
+        self.number = stepData.number!.intValue
+        self.step = stepData.title!
+        if let time = stepData.time, let unit = stepData.timeUnit {
+            self.length = Length(number: time.intValue, unit: unit)
+        } else {
+            self.length = nil
+        }
+    }
+    
     let number: Int
     let step: String
     let length: Length?

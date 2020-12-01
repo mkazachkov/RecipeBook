@@ -8,13 +8,14 @@
         <relationship name="steps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="StepData" inverseName="recipe" inverseEntity="StepData"/>
     </entity>
     <entity name="StepData" representedClassName="StepData" syncable="YES" codeGenerationType="class">
-        <attribute name="time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="number" attributeType="Integer 32" usesScalarValueType="NO"/>
+        <attribute name="time" optional="YES" attributeType="Integer 32" usesScalarValueType="NO"/>
         <attribute name="timeUnit" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="recipe" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeData" inverseName="steps" inverseEntity="RecipeData"/>
     </entity>
     <elements>
         <element name="RecipeData" positionX="-3623.355102539062" positionY="-1682.432098388672" width="128" height="104"/>
-        <element name="StepData" positionX="-3432.356689453125" positionY="-1680.812835693359" width="128" height="89"/>
+        <element name="StepData" positionX="-3432.356689453125" positionY="-1680.812835693359" width="128" height="104"/>
     </elements>
 </model>
