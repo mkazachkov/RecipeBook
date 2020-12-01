@@ -9,5 +9,9 @@ RecipeBook is a food app that can help you find recipes online and keep the list
 * **Remove a recipe from favorites.** If you no longer want to keep a recipe at your favorites list you can toggle :star: button at the top bar on the recipe screen to remove it from the list.
 
 # Frameworks and External APIs
+This is a 
 Search results list is fulfilled with the recipes from [Spoonacular Food API](https://spoonacular.com/food-api).
 Favorites list is persisted on the device using Core Data.
+
+# Installation
+The app is not intended to use as a library, so clone, build and run normally using Xcode 11 and Swift 5 :-)
